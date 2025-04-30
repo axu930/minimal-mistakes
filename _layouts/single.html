@@ -69,11 +69,9 @@ layout: default
 
     {% if site.comments.provider and page.comments %}
       {% if jekyll.environment == 'production' %}
-        {% include comments.html %}
         <div class="page__comments">
           {% capture comments_label %}{{ site.data.ui-text[site.locale].comments_label | default: "Comments" }}{% endcapture %}
           <h4 class="page__comments-title">{{ comments_label }}</h4>
-
           <section id="utterances-comments">
             <script src="https://utteranc.es/client.js"
             repo="axu930/axu930.github.io"
