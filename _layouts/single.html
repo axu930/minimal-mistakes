@@ -69,22 +69,22 @@ layout: default
 
     {% if site.comments.provider and page.comments %}
       {% if jekyll.environment == 'production' %}
-        <div class="page__comments">
-          {% capture comments_label %}{{ site.data.ui-text[site.locale].comments_label | default: "Comments" }}{% endcapture %}
-          <h4 class="page__comments-title">{{ comments_label }}</h4>
-          <section id="utterances-comments">
-            <script src="https://utteranc.es/client.js"
-            repo="axu930/axu930.github.io"
-            issue-term="pathname"
-            label="comment"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-            </script>
-          </section>
-        </div>
-
-        
+        <script src="https://giscus.app/client.js"
+        data-repo="axu930/axu930.github.io"
+        data-repo-id="R_kgDOOiZ4Cg"
+        data-category="Comments"
+        data-category-id="DIC_kwDOOiZ4Cs4Cppkg"
+        data-mapping="url"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark_dimmed"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+        </script>
       {% else %}
         <p>
           Comments are configured with provider: <strong>{{ site.comments.provider }}</strong>,
