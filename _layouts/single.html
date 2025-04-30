@@ -53,6 +53,14 @@ layout: default
       </section>
 
       <footer class="page__meta">
+        <script src="https://utteranc.es/client.js"
+        repo="axu930/axu930.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+        </script>
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
@@ -69,14 +77,7 @@ layout: default
     {% if site.comments.provider and page.comments %}
       {% if jekyll.environment == 'production' %}
         {% include comments.html %}
-        <script src="https://utteranc.es/client.js"
-        repo="axu930/axu930.github.io"
-        issue-term="pathname"
-        label="comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-        </script>
+        
       {% else %}
         <p>
           Comments are configured with provider: <strong>{{ site.comments.provider }}</strong>,
