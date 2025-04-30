@@ -62,20 +62,21 @@ layout: default
 
       {% include post_pagination.html %}
 
-      <script src="https://utteranc.es/client.js"
-        repo="axu930/axu930.github.io"
-        issue-term="pathname"
-        label="comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-      </script>
+    
     </div>
     
 
     {% if site.comments.provider and page.comments %}
       {% if jekyll.environment == 'production' %}
         {% include comments.html %}
+        <script src="https://utteranc.es/client.js"
+        repo="axu930/axu930.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+        </script>
       {% else %}
         <p>
           Comments are configured with provider: <strong>{{ site.comments.provider }}</strong>,
