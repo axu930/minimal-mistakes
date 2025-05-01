@@ -1,0 +1,15 @@
+{% assign author_no_spaces = include.author | replace: " ", "" %}
+{% assign title_underscores = include.title | replace: " ", "_" %}
+{% assign year = include.date | date: "%Y" %}
+{% assign month_abbr = include.date | date: "%b" %}
+{% assign full_month = include.date | date: "%B" %}
+{% assign citation_key = author_no_spaces | append: "_" | append: title_underscores | append: "_" | append: year | append: month_abbr %}
+
+@article{{{ citation_key }},
+  title = {{{ include.title }}},
+  author = {{{ include.author }}},
+  journal = {{{ include.journal }}},
+  year = {{{ year }}},
+  month = {{{ full_month }}},
+  url = {{{ include.journal }}}{{{ include.url }}}
+}
