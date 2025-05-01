@@ -39,8 +39,10 @@
   (info, $info-color),
   (facebook, $facebook-color),
   (twitter, $twitter-color),
+  (twitter-x, $twitter-x-color),
   (linkedin, $linkedin-color),
   (mastodon, $mastodon-color),
+  (reddit, $reddit-color),
   (bluesky, $bluesky-color);
 
   @each $buttoncolor, $color in $buttoncolors {
