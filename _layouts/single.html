@@ -63,22 +63,10 @@ layout: default
                data-date="{{ page.date }}"
                data-url="{{ page.permalink }}"
                style="display: none;"></div>
+
+          <!-- Empty div that will hold the highlight block -->
+          <div id="bibtex-highlight-container"></div>
           
-          <!-- Highlighted code block with placeholder content -->
-          {% highlight latex %}
-            <div id="bibtex-placeholder">
-            @article{CITATION_KEY,
-              title = {TITLE},
-              author = {AUTHOR},
-              journal = {JOURNAL},
-              year = {YEAR},
-              month = {MONTH},
-              url = {URL}
-            }
-            </div>
-          {% endhighlight %}        
-
-
           <script>
             document.addEventListener('DOMContentLoaded', function() {
               // Get data from hidden div (processed by template engine)
@@ -89,7 +77,7 @@ layout: default
               const author = dataDiv.getAttribute('data-author');
               const journal = dataDiv.getAttribute('data-journal');
               const date = dataDiv.getAttribute('data-date');
-              const ext = dataDiv.getAttribute('data-url');
+              const url = dataDiv.getAttribute('data-url');
               
               // Format date properly
               const dateObj = new Date(date);
@@ -100,7 +88,6 @@ layout: default
                                   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
               const fullMonth = monthNames[dateObj.getMonth()];
               const abbrMonth = monthAbbrs[dateObj.getMonth()];
-              const url = `${journal}${ext}`;
               
               // Create citation key
               const authorNoSpaces = author.replace(/\s+/g, "");
@@ -110,21 +97,30 @@ layout: default
               
               // Create BibTeX content
               const bibtexContent = `@article{${citationKey},
-                                      title = {${title}},
-                                      author = {${author}},
-                                      journal = {${journal}},
-                                      year = {${year}},
-                                      month = {${fullMonth}},
-                                      url = {${url}}
-                                    }`;
+            title = {${title}},
+            author = {${author}},
+            journal = {${journal}},
+            year = {${year}},
+            month = {${fullMonth}},
+            url = {${journal}${url}}
+          }`;
               
-              // Replace placeholder content
-              const placeholder = document.getElementById('bibtex-placeholder');
-              if (placeholder) {
-                placeholder.textContent = bibtexContent;
+              // Create a pre element with the correct classes for syntax highlighting
+              const container = document.getElementById('bibtex-highlight-container');
+              if (container) {
+                const pre = document.createElement('pre');
+                pre.className = 'highlight language-latex'; // Adjust classes based on your styling
+                
+                const code = document.createElement('code');
+                code.className = 'language-latex';
+                code.textContent = bibtexContent;
+                
+                pre.appendChild(code);
+                container.appendChild(pre);
               }
             });
           </script>
+
         {% endif %}
 
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
