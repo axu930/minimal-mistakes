@@ -49,6 +49,23 @@ layout: default
           </aside>
         {% endif %}
         {{ content }}
+
+        {% if page.citation %}
+        <section id="cite-this-blog">
+          <h5>How to cite this blog</h5>
+          <pre class="bibtex">
+            @article{page.citation,
+              title   = {page.title},
+              author  = {page.author.name},
+              journal = {site.url},
+              year    = {page.date | date: "%Y"},
+              month   = {page.date | date: "%m"},
+              url     = {page.link}
+            }
+          </pre>
+        </section>
+        {% endif %}
+
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
