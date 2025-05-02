@@ -11,13 +11,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-latex.min.js"></script>
 
 <!-- Load Mermaid for diagrams -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"></script>
-<script>
-mermaid.initialize({
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
     securityLevel: 'loose',
     theme: 'dark',
   });
-</script>
+  </script>
 
 <!-- Load Plotly for matplotlib diagrams-->
 <script src="https://cdn.plot.ly/plotly-3.0.1.min.js" charset="utf-8"></script>
