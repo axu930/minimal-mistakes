@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.1.1/katex.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.1.1/katex.min.js"></script>
 
-<!-- Load TikZJax for TikZ rendering-->
+<!-- Load TikZJax for TikZ rendering: Currently crashes the page on mobile.
 <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
 <script src="https://tikzjax.com/v1/tikzjax.js"></script>
 <style>
@@ -17,6 +17,7 @@
         padding: 2em;
     }
 </style>
+-->
 
 <!-- For Prism.js syntax highlighting -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-twilight.min.css">
@@ -35,13 +36,23 @@
 <!-- Load Plotly for matplotlib diagrams-->
 <script src="https://cdn.plot.ly/plotly-3.0.1.min.js" charset="utf-8"></script>
 
-<!-- flexbox for centering items -->
+<!-- flexboxes for centering items -->
 <style>
-    .fig-body  {
+    .plotly-body  {
+        margin: auto;
+        width: 75%;
+    }
+
+    .mermaid-body  {
         display: flex;
         align-items: center; 
+        margin: auto;
     }
+
+
 </style>
+
+
 
 <!-- Make the citation block font smaller-->
 <style>
